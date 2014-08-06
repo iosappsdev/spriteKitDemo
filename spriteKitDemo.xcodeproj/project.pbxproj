@@ -24,6 +24,9 @@
 		EB5812F21991DB7D00B2BA66 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5812CD1991DB7D00B2BA66 /* UIKit.framework */; };
 		EB5812FA1991DB7D00B2BA66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB5812F81991DB7D00B2BA66 /* InfoPlist.strings */; };
 		EB5812FC1991DB7D00B2BA66 /* spriteKitDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5812FB1991DB7D00B2BA66 /* spriteKitDemoTests.m */; };
+		EB5813061991E47E00B2BA66 /* wordList_lesson1.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB5813051991E47E00B2BA66 /* wordList_lesson1.txt */; };
+		EB5813091991E4D000B2BA66 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5813081991E4D000B2BA66 /* Data.m */; };
+		EB58130B1991F41F00B2BA66 /* flashingPractice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB58130A1991F41F00B2BA66 /* flashingPractice.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,10 @@
 		EB5812F71991DB7D00B2BA66 /* spriteKitDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "spriteKitDemoTests-Info.plist"; sourceTree = "<group>"; };
 		EB5812F91991DB7D00B2BA66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB5812FB1991DB7D00B2BA66 /* spriteKitDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spriteKitDemoTests.m; sourceTree = "<group>"; };
+		EB5813051991E47E00B2BA66 /* wordList_lesson1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordList_lesson1.txt; sourceTree = "<group>"; };
+		EB5813071991E4D000B2BA66 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		EB5813081991E4D000B2BA66 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		EB58130A1991F41F00B2BA66 /* flashingPractice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flashingPractice.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +128,8 @@
 		EB5812D11991DB7D00B2BA66 /* spriteKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EB58130A1991F41F00B2BA66 /* flashingPractice.jpg */,
+				EB5813051991E47E00B2BA66 /* wordList_lesson1.txt */,
 				EB5812DA1991DB7D00B2BA66 /* AppDelegate.h */,
 				EB5812DB1991DB7D00B2BA66 /* AppDelegate.m */,
 				EB5812DD1991DB7D00B2BA66 /* Main.storyboard */,
@@ -131,6 +140,8 @@
 				EB5812E61991DB7D00B2BA66 /* Spaceship.png */,
 				EB5812E81991DB7D00B2BA66 /* Images.xcassets */,
 				EB5812D21991DB7D00B2BA66 /* Supporting Files */,
+				EB5813071991E4D000B2BA66 /* Data.h */,
+				EB5813081991E4D000B2BA66 /* Data.m */,
 			);
 			path = spriteKitDemo;
 			sourceTree = "<group>";
@@ -242,6 +253,8 @@
 			files = (
 				EB5812D61991DB7D00B2BA66 /* InfoPlist.strings in Resources */,
 				EB5812E91991DB7D00B2BA66 /* Images.xcassets in Resources */,
+				EB58130B1991F41F00B2BA66 /* flashingPractice.jpg in Resources */,
+				EB5813061991E47E00B2BA66 /* wordList_lesson1.txt in Resources */,
 				EB5812E71991DB7D00B2BA66 /* Spaceship.png in Resources */,
 				EB5812DF1991DB7D00B2BA66 /* Main.storyboard in Resources */,
 			);
@@ -262,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5813091991E4D000B2BA66 /* Data.m in Sources */,
 				EB5812E51991DB7D00B2BA66 /* MyScene.m in Sources */,
 				EB5812E21991DB7D00B2BA66 /* ViewController.m in Sources */,
 				EB5812DC1991DB7D00B2BA66 /* AppDelegate.m in Sources */,

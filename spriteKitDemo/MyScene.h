@@ -7,7 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
-@interface MyScene : SKScene
-
+@import AVFoundation;
+@interface MyScene : SKScene {
+    AVSpeechSynthesizer *synthesizer;
+    AVSpeechUtterance *speech;
+    NSArray *_localModel;
+    int modelObjectIndex;
+    
+    SKLabelNode *myLabel;
+}
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "MyScene.h"
+#import "Data.h"
+
 
 @implementation MyScene
 
@@ -14,12 +16,15 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        Data *localModel = [[Data alloc]init];
+        _localModel = [localModel getDataWithLessonID:1];
+        modelObjectIndex = 0;
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        self.backgroundColor = [SKColor grayColor];
+        myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
+        myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+        myLabel.fontSize = 120;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                        CGRectGetMidY(self.frame));
         
@@ -30,9 +35,9 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
+    /*for (UITouch *touch in touches) {
+        //CGPoint location = [touch locationInNode:self];
+        
         
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
         
@@ -43,6 +48,15 @@
         [sprite runAction:[SKAction repeatActionForever:action]];
         
         [self addChild:sprite];
+    }*/
+    
+    if (modelObjectIndex <= 8) {
+        
+        myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+        modelObjectIndex++;
+    } else if (modelObjectIndex == 9) {
+        myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+        modelObjectIndex = 0;
     }
 }
 
