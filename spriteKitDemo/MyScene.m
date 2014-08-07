@@ -19,25 +19,26 @@ static const int currentLessonID = 1;
         /* Setup your scene here */
         
         synthesizer = [[AVSpeechSynthesizer alloc]init];
+        [synthesizer speakUtterance:[AVSpeechUtterance speechUtteranceWithString:@"System Ready"]];
         
         Data *localModel = [[Data alloc]init];
         _localModel = [localModel getDataWithLessonID:currentLessonID];
+        modelObjectIndex = 0;
         
-        self.backgroundColor = [SKColor grayColor];
+        self.backgroundColor = [SKColor darkGrayColor];
         
         myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
         myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
         myLabel.fontSize = 120;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                        CGRectGetMidY(self.frame));
         [self addChild:myLabel];
         
-        SKLabelNode *next = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE"];
+        SKLabelNode *next = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
         next.name = @"nextButton";
         next.text = @"Next";
         next.fontSize = 20;
-        next.position = CGPointMake(600,300);
+        next.position = CGPointMake(720,250);
         [self addChild:next];
         
     }
@@ -57,14 +58,20 @@ static const int currentLessonID = 1;
         // Working
         if (modelObjectIndex <= 8) {
             NSLog(@"The Current Object Index: %i",modelObjectIndex);
-            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
             modelObjectIndex++;
+            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+            
         } else if (modelObjectIndex == 9) {
             myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
             NSLog(@"The Current Object Index: %i",modelObjectIndex);
             modelObjectIndex = 0;
-        
-        // Testing w/Model
+    
+            SKAction *moveLeft = [SKAction moveByX:-600 y:0 duration:0.5];
+            SKAction *group = [SKAction group:@[moveLeft]];
+            [myLabel runAction:group];
+            
+            myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+                                           CGRectGetMidY(self.frame));
         }
     } else {
         speech = [AVSpeechUtterance speechUtteranceWithString:[_localModel objectAtIndex:modelObjectIndex]];
