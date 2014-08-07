@@ -9,6 +9,8 @@
 #import "MyScene.h"
 #import "Data.h"
 
+// Set LessonID
+static const int currentLessonID = 1;
 
 @implementation MyScene
 
@@ -19,8 +21,9 @@
         synthesizer = [[AVSpeechSynthesizer alloc]init];
         
         Data *localModel = [[Data alloc]init];
-        _localModel = [localModel getDataWithLessonID:1];
+        _localModel = [localModel getDataWithLessonID:currentLessonID];
         modelObjectIndex = 0;
+        NSLog(@"The Current Object Index: %i",modelObjectIndex);
         
         self.backgroundColor = [SKColor grayColor];
         
@@ -30,15 +33,15 @@
         myLabel.fontSize = 120;
         myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                        CGRectGetMidY(self.frame));
-        
         [self addChild:myLabel];
         
         SKLabelNode *next = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE"];
         next.name = @"nextButton";
         next.text = @"Next";
         next.fontSize = 20;
-        next.position = CGPointMake(600,400);
+        next.position = CGPointMake(600,300);
         [self addChild:next];
+        
     }
     return self;
 }
@@ -50,21 +53,28 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    speech = [AVSpeechUtterance speechUtteranceWithString:[_localModel objectAtIndex:modelObjectIndex]];
-    [speech setRate:0.050f];
-    [speech setVolume:0.8f];
-    [synthesizer speakUtterance:speech];
+    
     
     // Button Action
     if ([node.name isEqualToString:@"nextButton"]) {
         
-        if (modelObjectIndex <= _localModel.count-1) {
-            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+        if (modelObjectIndex < _localModel.count) {
+            NSLog(@"The Current Object Index: %i",modelObjectIndex);
             modelObjectIndex++;
-        } else if (modelObjectIndex == _localModel.count) {
+            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+            
+        } else if (modelObjectIndex >= _localModel.count) {
             myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
             modelObjectIndex = 0;
+            
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SpriteKit Demo" message:@"You Finished The Word List" delegate:self cancelButtonTitle:@"Dissmiss" otherButtonTitles:nil];
+            [alert show];
         }
+    } else {
+        speech = [AVSpeechUtterance speechUtteranceWithString:[_localModel objectAtIndex:modelObjectIndex]];
+        [speech setRate:0.050f];
+        [speech setVolume:0.8f];
+        [synthesizer speakUtterance:speech];
     }
 }
 
