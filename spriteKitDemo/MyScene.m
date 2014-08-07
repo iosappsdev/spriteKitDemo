@@ -16,6 +16,9 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         
+        synthesizer = [[AVSpeechSynthesizer alloc]init];
+        
+        
         Data *localModel = [[Data alloc]init];
         _localModel = [localModel getDataWithLessonID:1];
         modelObjectIndex = 0;
@@ -29,6 +32,12 @@
                                        CGRectGetMidY(self.frame));
         
         [self addChild:myLabel];
+        
+        SKLabelNode *next = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE"];
+        next.text = @"Next";
+        next.fontSize = 90;
+        next.position = CGPointMake(10,10);
+        [self addChild:next];
     }
     return self;
 }
@@ -50,11 +59,19 @@
         [self addChild:sprite];
     }*/
     
+    speech = [AVSpeechUtterance speechUtteranceWithString:[_localModel objectAtIndex:modelObjectIndex]];
+    // Speech Rate/Speed
+    [speech setRate:0.050f];
+    // Speech Volume
+    [speech setVolume:0.8f];
+    [synthesizer speakUtterance:speech];
+    
     if (modelObjectIndex <= 8) {
         
         myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
         modelObjectIndex++;
     } else if (modelObjectIndex == 9) {
+        
         myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
         modelObjectIndex = 0;
     }
