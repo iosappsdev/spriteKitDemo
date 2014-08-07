@@ -8,8 +8,10 @@
 
 #import "Data.h"
 
-@implementation Data
-@synthesize currentWord, currentWordList, filePath;
+@implementation Data {
+    NSString *filePath;
+    NSArray *currentWordList;
+}
 
 - (NSArray *)getDataWithLessonID:(int)lessonID {
     

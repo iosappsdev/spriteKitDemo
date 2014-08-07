@@ -17,7 +17,6 @@
 		EB5812DF1991DB7D00B2BA66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB5812DD1991DB7D00B2BA66 /* Main.storyboard */; };
 		EB5812E21991DB7D00B2BA66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5812E11991DB7D00B2BA66 /* ViewController.m */; };
 		EB5812E51991DB7D00B2BA66 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5812E41991DB7D00B2BA66 /* MyScene.m */; };
-		EB5812E71991DB7D00B2BA66 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5812E61991DB7D00B2BA66 /* Spaceship.png */; };
 		EB5812E91991DB7D00B2BA66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB5812E81991DB7D00B2BA66 /* Images.xcassets */; };
 		EB5812F01991DB7D00B2BA66 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5812EF1991DB7D00B2BA66 /* XCTest.framework */; };
 		EB5812F11991DB7D00B2BA66 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5812C91991DB7D00B2BA66 /* Foundation.framework */; };
@@ -56,7 +55,6 @@
 		EB5812E11991DB7D00B2BA66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EB5812E31991DB7D00B2BA66 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		EB5812E41991DB7D00B2BA66 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		EB5812E61991DB7D00B2BA66 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		EB5812E81991DB7D00B2BA66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB5812EE1991DB7D00B2BA66 /* spriteKitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spriteKitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5812EF1991DB7D00B2BA66 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -94,6 +92,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		816C98701994063F00709F91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB5813071991E4D000B2BA66 /* Data.h */,
+				EB5813081991E4D000B2BA66 /* Data.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		816C98711994065C00709F91 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EB58130A1991F41F00B2BA66 /* flashingPractice.jpg */,
+				EB5813051991E47E00B2BA66 /* wordList_lesson1.txt */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		816C98721994066400709F91 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				EB5812DA1991DB7D00B2BA66 /* AppDelegate.h */,
+				EB5812DB1991DB7D00B2BA66 /* AppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		816C98731994066E00709F91 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB5812E01991DB7D00B2BA66 /* ViewController.h */,
+				EB5812E11991DB7D00B2BA66 /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		816C98741994067800709F91 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				EB5812E31991DB7D00B2BA66 /* MyScene.h */,
+				EB5812E41991DB7D00B2BA66 /* MyScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		EB5812BD1991DB7D00B2BA66 = {
 			isa = PBXGroup;
 			children = (
@@ -128,20 +171,14 @@
 		EB5812D11991DB7D00B2BA66 /* spriteKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				EB58130A1991F41F00B2BA66 /* flashingPractice.jpg */,
-				EB5813051991E47E00B2BA66 /* wordList_lesson1.txt */,
-				EB5812DA1991DB7D00B2BA66 /* AppDelegate.h */,
-				EB5812DB1991DB7D00B2BA66 /* AppDelegate.m */,
 				EB5812DD1991DB7D00B2BA66 /* Main.storyboard */,
-				EB5812E01991DB7D00B2BA66 /* ViewController.h */,
-				EB5812E11991DB7D00B2BA66 /* ViewController.m */,
-				EB5812E31991DB7D00B2BA66 /* MyScene.h */,
-				EB5812E41991DB7D00B2BA66 /* MyScene.m */,
-				EB5812E61991DB7D00B2BA66 /* Spaceship.png */,
+				816C98721994066400709F91 /* Delegate */,
+				816C98701994063F00709F91 /* Model */,
+				816C98731994066E00709F91 /* ViewControllers */,
+				816C98741994067800709F91 /* Scenes */,
+				816C98711994065C00709F91 /* Assets */,
 				EB5812E81991DB7D00B2BA66 /* Images.xcassets */,
 				EB5812D21991DB7D00B2BA66 /* Supporting Files */,
-				EB5813071991E4D000B2BA66 /* Data.h */,
-				EB5813081991E4D000B2BA66 /* Data.m */,
 			);
 			path = spriteKitDemo;
 			sourceTree = "<group>";
@@ -255,7 +292,6 @@
 				EB5812E91991DB7D00B2BA66 /* Images.xcassets in Resources */,
 				EB58130B1991F41F00B2BA66 /* flashingPractice.jpg in Resources */,
 				EB5813061991E47E00B2BA66 /* wordList_lesson1.txt in Resources */,
-				EB5812E71991DB7D00B2BA66 /* Spaceship.png in Resources */,
 				EB5812DF1991DB7D00B2BA66 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +524,7 @@
 				EB5813011991DB7D00B2BA66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB5813021991DB7D00B2BA66 /* Build configuration list for PBXNativeTarget "spriteKitDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +533,7 @@
 				EB5813041991DB7D00B2BA66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

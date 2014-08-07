@@ -9,10 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface Data : NSObject
-@property (nonatomic,strong) NSString *currentWord;
-@property (nonatomic,strong) NSArray *currentWordList;
-@property (nonatomic,strong) NSString *filePath;
-
 - (NSArray *)getDataWithLessonID:(int)lessonID;
-
 @end

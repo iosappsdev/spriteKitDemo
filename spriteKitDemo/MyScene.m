@@ -22,8 +22,6 @@ static const int currentLessonID = 1;
         
         Data *localModel = [[Data alloc]init];
         _localModel = [localModel getDataWithLessonID:currentLessonID];
-        modelObjectIndex = 0;
-        NSLog(@"The Current Object Index: %i",modelObjectIndex);
         
         self.backgroundColor = [SKColor grayColor];
         
@@ -53,22 +51,20 @@ static const int currentLessonID = 1;
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    
-    
     // Button Action
     if ([node.name isEqualToString:@"nextButton"]) {
         
-        if (modelObjectIndex < _localModel.count) {
+        // Working
+        if (modelObjectIndex <= 8) {
             NSLog(@"The Current Object Index: %i",modelObjectIndex);
+            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
             modelObjectIndex++;
+        } else if (modelObjectIndex == 9) {
             myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
-            
-        } else if (modelObjectIndex >= _localModel.count) {
-            myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+            NSLog(@"The Current Object Index: %i",modelObjectIndex);
             modelObjectIndex = 0;
-            
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SpriteKit Demo" message:@"You Finished The Word List" delegate:self cancelButtonTitle:@"Dissmiss" otherButtonTitles:nil];
-            [alert show];
+        
+        // Testing w/Model
         }
     } else {
         speech = [AVSpeechUtterance speechUtteranceWithString:[_localModel objectAtIndex:modelObjectIndex]];
@@ -80,6 +76,17 @@ static const int currentLessonID = 1;
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0: myLabel.text = [_localModel objectAtIndex:modelObjectIndex];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

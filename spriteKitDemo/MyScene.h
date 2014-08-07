@@ -8,7 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 @import AVFoundation;
-@interface MyScene : SKScene {
+@interface MyScene : SKScene<UIAlertViewDelegate> {
     AVSpeechSynthesizer *synthesizer;
     AVSpeechUtterance *speech;
     NSArray *_localModel;
